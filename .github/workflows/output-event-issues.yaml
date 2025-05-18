@@ -1,0 +1,25 @@
+name: GitHub Actions
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  output-event-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        run: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: |
+          echo "Installing dependencies..."
+          npm ci
+      - name: Display github JSON
+        run: |
+          echo "Displaying GitHub JSON..."
+          echo "${{ toJson(github) }}"  

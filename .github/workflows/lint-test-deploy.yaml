@@ -1,0 +1,40 @@
+name: GitHub Actions
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  lint-test-build-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        run: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: |
+          echo "Installing dependencies..."
+          npm ci
+      - name: Run lint
+        run: |
+          echo "Running lint..."
+          npm run lint
+      - name: Run tests
+        run: |
+          echo "Running tests..."
+          npm test
+      - name: Build project
+        run: |
+          echo "Building project..."
+          npm run Build
+      - name: Deploy to production
+        run: |
+          echo "Deploying to production..."
+          # Add your deployment commands here
+          # For example, you might use rsync, scp, or a cloud provider's CLI tool
+          # Example: rsync -avz ./dist/ user@server:/path/to/deploy/
+          echo "Deployment complete!"
