@@ -30,7 +30,7 @@ jobs:
       - name: Build project
         run: |
           echo "Building project..."
-          npm run Build
+          npm run build
       - name: Deploy to production
         run: |
           echo "Deploying to production..."
