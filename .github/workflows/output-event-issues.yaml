@@ -11,6 +11,8 @@ jobs:
       - name: DEBUG - Display json object
         run: |
   output-event-issues:
+    runs-on: ubuntu-latest
+    steps:
       - name: Output issue event
         run: |
           echo "Event Name: ${{ github.event_name }}"
