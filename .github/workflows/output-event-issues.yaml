@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: DEBUG - Display json object
         run: |
+          echo "${{ toJson(github.event) }}"
   output-event-issues:
     runs-on: ubuntu-latest
     steps:
