@@ -21,4 +21,4 @@ jobs:
           echo "Issue URL: ${{ github.event.issue.html_url }}"
           echo "Issue State: ${{ github.event.issue.state }}"
           echo "Issue Labels: ${{ toJson(github.event.issue.labels) }}"
-          echo "Issue Assignee: ${{
+          
