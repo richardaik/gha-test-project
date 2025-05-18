@@ -1,4 +1,4 @@
-name: GitHub Actions
+name: lint-test-build-app
 
 on:
   push:
